@@ -8,7 +8,7 @@ A toolset used to render and view wedges from ComfyUI. This can be used with any
 
 You can use the **work/** folder for convenience.
 
-## Quick Start (Windows)
+# Quick Start (Windows)
 
 ### Setup
 
@@ -40,3 +40,45 @@ pip install -r requirements.txt
 2. Click "Load Image"
 3. Navigate to any image rendered with the wedge submit tool.
 4. When the image is loaded, sliders will be populated using image metadata. Modify sliders and dropdown menus to explore the image dataset.
+
+
+
+
+
+# wedge_config.json
+
+Example wedge_config.json contents:
+
+```json
+{
+    "project_name": "_DEMO_wedge",
+    "filename_prefix": "wedge",
+    "for_testing": false,
+    "show_confirmation": true,
+    "url": "127.0.0.1:8000",
+    "param_overrides": [
+      ["CLIP Text Encode (Prompt) - POS", "text", "A cute dog wearing sunglasses riding a skateboard down a mountainside during a storm at night with an errupting volcano in the background, pouring rain, lava, fire, apocalypse, explosions, danger, dynamic angle, red chaotic lighting, cinematic, masterpiece, view from below"]
+    ],
+    "param_wedges": {
+      "steps": ["KSampler", [14, 20, 2], "minmax"],
+      "sampler_name": ["KSampler", ["euler", "dpmpp_2m", "dpmpp_2m_sde"], "explicit"]
+    }
+}
+```
+
+### Parameters
+- **project_name** - the folder name used to contain all the output images.
+- **filename_prefix** - used to prefix all images.
+- **for_testing** - set to true to submit a dummy job. 
+- **show_confirmation** - enables a confirmation dialogue showing the number of images about to be submitted.
+- **url** - address of the running ComfyUI server.
+- **param_overrides** - An optional parameter that overrides a given paremeter of the workflow_api.json file for all wedge outputs. Can also be set directly in the workflow_api.json file and left blank in this config.
+- **param_wedges** - parameters set to be wedged.
+
+### param_wedges
+This is used to set the wedge parameters. This follows this structure:
+"(Parameter)": ["(Node Name)", [(Values)], "(Mode)"]
+
+If Mode is set to "minmax", Values is a list containing [min, max, step]. The wedge tool will iterate over this Parameter from min to max based on the step value.
+
+If Mode is set to "explicit", Values is a list of explicit values to be iterated over.
