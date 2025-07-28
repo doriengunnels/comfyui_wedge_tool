@@ -1,6 +1,7 @@
 # ComfyUI Wedge Tool
 
 A toolset used to render and view wedges from ComfyUI. This can be used with any workflow as long as there is a single output node.
+(Note: This was originally written for my personal workflows and retrofitted to work for more generic workflows. It may be worth rewriting from scratch to simply this process and make parameters more intuitive.)
 
 ### This requires a folder containing two files:
 - **workflow_api.json** - an api export of the ComfyUI workflow you intend to wedge.
