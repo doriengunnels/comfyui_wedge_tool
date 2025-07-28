@@ -57,7 +57,7 @@ Example wedge_config.json contents:
     "show_confirmation": true,
     "url": "127.0.0.1:8000",
     "param_overrides": [
-      ["CLIP Text Encode (Prompt) - POS", "text", "A cute dog wearing sunglasses riding a skateboard down a mountainside during a storm at night with an errupting volcano in the background, pouring rain, lava, fire, apocalypse, explosions, danger, dynamic angle, red chaotic lighting, cinematic, masterpiece, view from below"]
+      ["CLIP Text Encode (Prompt) - POS", "text", "A cute dog wearing sunglasses riding a skateboard down a mountainside during a storm at night with an errupting volcano in the background, pouring rain, lava, fire, apocalypse, explosions, danger, dynamic angle, cinematic, masterpiece, view from below"]
     ],
     "param_wedges": {
       "steps": ["KSampler", [14, 20, 2], "minmax"],
