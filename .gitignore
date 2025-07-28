@@ -194,5 +194,5 @@ cython_debug/
 .cursorignore
 .cursorindexingignore
 
-work/*
+work/*/*
 !work/wedge_DEMO/**
